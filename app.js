@@ -70,10 +70,19 @@ function play() {
     guesses.push(guess);
     playerScores[playerName] = guesses;
   }
-  while (guess === secretNumber) {
+  if (guess === secretNumber) {
     congratsmessage();
+
+    let playAgain = prompt(
+      `would you like to play again ${playerName}! Enter yes or no.`
+    );
+
+    if (playAgain.toLowerCase() == "yes") {
+      play();
+    } else {
+      alert(`goodbye ${playerName}`);
+    }
   }
-  feature7();
 }
 
 play();
